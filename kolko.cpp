@@ -332,10 +332,11 @@ vector<int> populateBoardAtTheBegining(){
     if(!whosTurnToMove)
     {
          vector<int> decisionVector = getDecisionVector(board);
-         int theBestMove = -1;
+         int theBestMove = 0;
          for(int i = 1; i < decisionVector.size(); i++){
-             if(decisionVector[i] > theBestMove)
+             if(decisionVector[i] > decisionVector[theBestMove]){
                  theBestMove = i;
+             }
          }
          board[theBestMove] = -1;
          if(theBestMove == 100)
